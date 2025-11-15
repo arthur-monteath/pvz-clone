@@ -7,4 +7,6 @@ func tween(object: Node2D, property: String, target, time := 1.0, easing: Tween.
 	return tw
 
 func random_radius(radius: float):
-	return Vector2.from_angle(TAU * randf()) * radius * randf()
+	var angle = TAU * randf()
+	var r = radius * sqrt(randf()) # Spreads evenly due to area being r^2
+	return Vector2.from_angle(angle) * r

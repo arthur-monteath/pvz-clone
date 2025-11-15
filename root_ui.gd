@@ -11,7 +11,7 @@ func _ready():
 	wave_manager.on_wave_start.connect(_on_wave_start)
 
 func _on_sun_amount_changed(amount: int):
-	sun_label.text = str(amount)
+	sun_label.text = str(amount * 20)
 
 func _on_wave_start(wave: int):
 	wave_label.text = "Wave " + str(wave)

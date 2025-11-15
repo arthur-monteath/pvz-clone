@@ -15,8 +15,13 @@ func add_suns(amount: int = 1):
 
 const SUN = preload("uid://drc3771pvtotc")
 func _ready() -> void:
-	for i in range(1000):
+	spawn()
+
+func spawn():
+	for i in range(5):
 		var sun = SUN.instantiate()
-		sun.global_position = Vector2(580,300) + Utils.random_radius(300)
+		sun.global_position = Vector2(570,346) + Utils.random_radius(280)
 		overlay.add_child(sun)
 		sun.owner = self
+	await get_tree().create_timer(0.1).timeout
+	spawn()

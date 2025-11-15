@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0k1w"]
-radius = 24.0
+radius = 48.0
 
 [node name="Sun" type="Area2D"]
 script = ExtResource("1_vhamh")
@@ -42,7 +42,7 @@ script = ExtResource("1_vhamh")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_vqe2t")
 autoplay = "default"
-frame_progress = 0.3994639
+frame_progress = 0.45258117
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h0k1w")

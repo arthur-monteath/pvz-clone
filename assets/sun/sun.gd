@@ -2,6 +2,9 @@ extends Area2D
 
 func _ready():
 	mouse_entered.connect(collect)
+	var sprite: AnimatedSprite2D = get_node("%Sprite")
+	sprite.frame = randi() % 3
+	sprite.speed_scale = randf() * 0.2 + 0.9
 
 func collect():
 	var sun_icon: Control = get_node("%SunContainer/Icon")
