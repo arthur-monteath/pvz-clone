@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv5uicrj4s35"]
+[gd_scene load_steps=10 format=3 uid="uid://cv5uicrj4s35"]
 
 [ext_resource type="Script" uid="uid://5vos5sxe58df" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://chu6ljqm27g3l" path="res://root_ui.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0htgvncta7g8" path="res://assets/sun/sun_icon.png" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://db2hlbjq5gyjq" path="res://assets/enemies/waves/wave_manager.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://c2ki7wupl58x8" path="res://assets/enemies/waves/wave.gd" id="5_lquwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7dm0k"]
 font_size = 32
@@ -12,6 +14,22 @@ outline_color = Color(1, 0.7372549, 0, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.22745098)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font_size = 32
+outline_size = 16
+outline_color = Color(0.85490197, 0.5254902, 0.24313726, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.20784314)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="Resource" id="Resource_7mycd"]
+script = ExtResource("5_lquwl")
+metadata/_custom_type_script = "uid://c2ki7wupl58x8"
+
+[sub_resource type="Resource" id="Resource_272bh"]
+script = ExtResource("5_lquwl")
+metadata/_custom_type_script = "uid://c2ki7wupl58x8"
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -48,6 +66,30 @@ text = "0"
 label_settings = SubResource("LabelSettings_7dm0k")
 vertical_alignment = 1
 
+[node name="WaveLabel" type="Label" parent="RootUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 8.0
+offset_right = 55.5
+offset_bottom = 53.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Wave 0"
+label_settings = SubResource("LabelSettings_1bvp3")
+
 [node name="OverlayUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 layer = 2
+
+[node name="CurrencyManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="WaveManager" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+script = ExtResource("4_1bvp3")
+waves = Array[ExtResource("5_lquwl")]([SubResource("Resource_7mycd"), SubResource("Resource_272bh")])
