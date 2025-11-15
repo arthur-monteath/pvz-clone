@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cv5uicrj4s35"]
+[gd_scene load_steps=13 format=3 uid="uid://cv5uicrj4s35"]
 
 [ext_resource type="Script" uid="uid://5vos5sxe58df" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://chu6ljqm27g3l" path="res://root_ui.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0htgvncta7g8" path="res://assets/sun/sun_icon.png" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://db2hlbjq5gyjq" path="res://assets/enemies/waves/wave_manager.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://c0j0grxdngdxs" path="res://lane_manager.gd" id="4_5vw27"]
+[ext_resource type="Script" uid="uid://drvmu54sjc2sq" path="res://currency_manager.gd" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://54ltqe567sm0" path="res://assets/lane.png" id="4_272bh"]
 [ext_resource type="Script" uid="uid://c2ki7wupl58x8" path="res://assets/enemies/waves/wave.gd" id="5_lquwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7dm0k"]
@@ -33,6 +36,10 @@ metadata/_custom_type_script = "uid://c2ki7wupl58x8"
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
+
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(576, 324)
 
 [node name="RootUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -85,8 +92,50 @@ label_settings = SubResource("LabelSettings_1bvp3")
 unique_name_in_owner = true
 layer = 2
 
-[node name="CurrencyManager" type="Node2D" parent="."]
+[node name="Env" type="Node2D" parent="."]
+
+[node name="LaneManager" type="Node2D" parent="Env"]
 unique_name_in_owner = true
+script = ExtResource("4_5vw27")
+lane_texture = ExtResource("4_272bh")
+lane_amount = 4
+width = 64
+margin_top = 128
+margin_bottom = 0
+margin_left = 64
+margin_right = 0
+
+[node name="Lane0" type="Line2D" parent="Env/LaneManager"]
+texture_repeat = 2
+points = PackedVector2Array(64, 128, 1152, 128)
+width = 64.0
+texture = ExtResource("4_272bh")
+texture_mode = 1
+
+[node name="Lane1" type="Line2D" parent="Env/LaneManager"]
+texture_repeat = 2
+points = PackedVector2Array(64, 258, 1152, 258)
+width = 64.0
+texture = ExtResource("4_272bh")
+texture_mode = 1
+
+[node name="Lane2" type="Line2D" parent="Env/LaneManager"]
+texture_repeat = 2
+points = PackedVector2Array(64, 388, 1152, 388)
+width = 64.0
+texture = ExtResource("4_272bh")
+texture_mode = 1
+
+[node name="Lane3" type="Line2D" parent="Env/LaneManager"]
+texture_repeat = 2
+points = PackedVector2Array(64, 518, 1152, 518)
+width = 64.0
+texture = ExtResource("4_272bh")
+texture_mode = 1
+
+[node name="SunManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_7mycd")
 
 [node name="WaveManager" type="Timer" parent="."]
 unique_name_in_owner = true

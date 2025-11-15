@@ -14,6 +14,6 @@ func collect():
 		sun_icon.get_global_rect().get_center(), 1.0
 		).tween_callback(
 		func() -> void:
-		(owner as Main).add_suns()
+		get_node("%SunManager").add_suns()
 		queue_free()
 	)
