@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv5uicrj4s35"]
+
+[ext_resource type="Script" uid="uid://5vos5sxe58df" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://chu6ljqm27g3l" path="res://root_ui.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://drc3771pvtotc" path="res://assets/sun/sun.tscn" id="3_h2yge"]
+
+[sub_resource type="Gradient" id="Gradient_7dm0k"]
+colors = PackedColorArray(1, 0.827451, 0.28627452, 1, 0.96862745, 0.7137255, 0.003921569, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ig7tw"]
+gradient = SubResource("Gradient_7dm0k")
+width = 32
+height = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_7dm0k"]
+font_size = 32
+font_color = Color(0.9999997, 0.83910495, 0.32635677, 1)
+outline_size = 4
+outline_color = Color(1, 0.7372549, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.22745098)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="RootUI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ig7tw")
+
+[node name="PanelContainer" type="PanelContainer" parent="RootUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="RootUI/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="SunContainer" type="HBoxContainer" parent="RootUI/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="RootUI/PanelContainer/MarginContainer/SunContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ig7tw")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="RootUI/PanelContainer/MarginContainer/SunContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_7dm0k")
+vertical_alignment = 1
+
+[node name="OverUI" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource("1_ig7tw")
+
+[node name="Sun" parent="OverUI" instance=ExtResource("3_h2yge")]
+position = Vector2(374, 351)
+
+[node name="Sun2" parent="OverUI" instance=ExtResource("3_h2yge")]
+position = Vector2(487, 412)
+
+[node name="Sun3" parent="OverUI" instance=ExtResource("3_h2yge")]
+position = Vector2(648, 274)
+
+[node name="Sun4" parent="OverUI" instance=ExtResource("3_h2yge")]
+position = Vector2(514, 171)
+
+[node name="Sun5" parent="OverUI" instance=ExtResource("3_h2yge")]
+position = Vector2(883, 109)
+
+[node name="Sun6" parent="OverUI" instance=ExtResource("3_h2yge")]
+position = Vector2(830, 394)
