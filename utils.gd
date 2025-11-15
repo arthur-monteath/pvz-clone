@@ -5,3 +5,6 @@ func tween(object: Node2D, property: String, target, time := 1.0, easing: Tween.
 	tw.set_ease(easing).set_trans(trans)
 	tw.tween_property(object, property, target, time)
 	return tw
+
+func random_radius(radius: float):
+	return Vector2.from_angle(TAU * randf()) * radius * randf()
