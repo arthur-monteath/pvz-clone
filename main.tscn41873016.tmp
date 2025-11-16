@@ -99,9 +99,9 @@ unique_name_in_owner = true
 script = ExtResource("4_5vw27")
 lane_texture = ExtResource("4_272bh")
 margin_top = 128
-margin_bottom = 32
+margin_bottom = 0
 margin_left = 64
-margin_right = 32
+margin_right = 0
 
 [node name="SunManager" type="Node2D" parent="."]
 unique_name_in_owner = true

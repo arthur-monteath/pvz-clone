@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3bejon0p7spq"]
+
+[ext_resource type="Texture2D" uid="uid://54ltqe567sm0" path="res://assets/lane.png" id="1_eeegb"]
+[ext_resource type="Script" uid="uid://dhsoi6xu28yhk" path="res://assets/grid_tile.gd" id="1_in4wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(32, 32)
+
+[node name="GridTile" type="Area2D"]
+modulate = Color(0.4874441, 0.24485475, 0.14003184, 1)
+script = ExtResource("1_in4wq")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_eeegb")
